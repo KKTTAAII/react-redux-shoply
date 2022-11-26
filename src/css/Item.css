@@ -42,3 +42,12 @@
     border: none;
     cursor: pointer;
 }
+
+.Item-update-quantity-container {
+    display: flex;
+    height: 20px;
+}
+
+.Item-quantity {
+    margin: 0;
+}
