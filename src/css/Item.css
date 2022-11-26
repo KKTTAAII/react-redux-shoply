@@ -1,0 +1,44 @@
+.Item-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #386641;
+    border-radius: 5px;
+    width: 20vw;
+    height: 280px;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.Item-container:hover {
+    border-color: #a7c957;
+    box-shadow: 5px 5px 10px lightgray;
+}
+
+.Item-img {
+    width:  20vw;
+    height: 100px;
+    object-fit: scale-down;
+}
+
+.Item-name, .Item-price, .Item-description {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.Item-name {
+    font-size: 1.5em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.Item-description {
+    text-align: center;
+}
+
+.Item-add-btn, .Item-remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
