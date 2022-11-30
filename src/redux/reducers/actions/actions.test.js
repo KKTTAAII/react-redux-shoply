@@ -4,20 +4,22 @@ import thunk from "redux-thunk";
 import moxios from "moxios";
 import { getInventory, add, remove } from "./actions";
 
-const testStore = initialState => {
-  const createStoreWithMiddleWare = applyMiddleware(thunk)(createStore);
-  return createStoreWithMiddleWare(rootReducer, initialState);
-};
+let store;
+
+beforeEach(() => {
+  const testStore = initialState => {
+    const createStoreWithMiddleWare = applyMiddleware(thunk)(createStore);
+    return createStoreWithMiddleWare(rootReducer, initialState);
+  };
+  store = testStore({ inventory: [], cart: {} });
+  moxios.install();
+});
+
+afterEach(() => {
+  moxios.uninstall();
+});
 
 describe("get inventory data", () => {
-  beforeEach(() => {
-    moxios.install();
-  });
-
-  afterEach(() => {
-    moxios.uninstall();
-  });
-
   test("Store is updated correctly", () => {
     const expectedState = [
       {
@@ -30,8 +32,6 @@ describe("get inventory data", () => {
         price: 219.99,
       },
     ];
-
-    const store = testStore();
 
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
@@ -49,8 +49,6 @@ describe("get inventory data", () => {
   });
 
   test("store was not updated", () => {
-    const store = testStore();
-
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
@@ -66,15 +64,7 @@ describe("get inventory data", () => {
   });
 });
 
-describe("add/remove item from cart", () => {
-  beforeEach(() => {
-    moxios.install();
-  });
-
-  afterEach(() => {
-    moxios.uninstall();
-  });
-
+describe("add item to cart", () => {
   test("adds an item to cart store", () => {
     const expectedState = [
       {
@@ -87,8 +77,6 @@ describe("add/remove item from cart", () => {
         price: 219.99,
       },
     ];
-
-    const store = testStore();
 
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
@@ -119,8 +107,10 @@ describe("add/remove item from cart", () => {
       });
     });
   });
+});
 
-  test("removes an item to cart store", () => {
+describe("removes item", () => {
+  test("removes an item from cart store", () => {
     const expectedState = [
       {
         description:
@@ -132,8 +122,6 @@ describe("add/remove item from cart", () => {
         price: 219.99,
       },
     ];
-
-    const store = testStore();
 
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
@@ -160,7 +148,7 @@ describe("add/remove item from cart", () => {
             price: 219.99,
           },
         ],
-        cart: { tv: 2 },
+        cart: { tv: 1 },
       });
 
       const action2 = store.dispatch(remove("tv"));
@@ -178,7 +166,7 @@ describe("add/remove item from cart", () => {
             price: 219.99,
           },
         ],
-        cart: { tv: 1 },
+        cart: {},
       });
     });
   });
