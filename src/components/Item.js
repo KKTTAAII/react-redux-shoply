@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../redux/reducers/actions/actions";
 
 const Item = ({ src, name, price, description }) => {
-  const { cart } = useSelector(state => state.cart);
-  console.log(cart);
+  const cart  = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const addItem = name => dispatch(add(name));
   const removeItem = name => dispatch(remove(name));
@@ -16,13 +15,13 @@ const Item = ({ src, name, price, description }) => {
       <p className="Item-price">${price}</p>
       <p className="Item-description">{description}</p>
       <div className="Item-update-quantity-container">
-        <button onClick={() => addItem(name)} className="Item-add-btn">
+        <span onClick={() => addItem(name)} className="Item-add-btn">
           ➕
-        </button>
+        </span>
         <p className="Item-quantity">{cart[name] > 0 ? cart[name] : 0}</p>
-        <button onClick={() => removeItem(name)} className="Item-remove-btn">
+        <span onClick={() => removeItem(name)} className="Item-remove-btn">
           ➖
-        </button>
+        </span>
       </div>
     </div>
   );
