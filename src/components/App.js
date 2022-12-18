@@ -1,12 +1,22 @@
-import React from "react";
-import "../css/App.css";
-import List from "./List";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getInventory } from "../redux/reducers/actions/actions";
+import AllRoutes from "./Routes";
+import { Container } from "react-bootstrap";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getInventory());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <List />
-    </div>
+    <Container>
+      <div className="App">
+        <AllRoutes />
+      </div>
+    </Container>
   );
 }
 

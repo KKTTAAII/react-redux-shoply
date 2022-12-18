@@ -1,0 +1,5 @@
+.CartItem-img {
+    width:  20vw;
+    height: 100px;
+    object-fit: scale-down;
+}

@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { getInventory } from "../redux/reducers/actions/actions";
+import React from "react";
+import { shallowEqual, useSelector } from "react-redux";
 import Item from "./Item";
 import "../css/List.css";
 
 const List = () => {
   const inventory = useSelector(state => state.inventory, shallowEqual);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getInventory());
-  }, [dispatch]);
 
   const allItems =
     inventory.length !== 0 ? (
@@ -23,6 +17,7 @@ const List = () => {
             name={name}
             price={price}
             description={description}
+            id={id}
           />
         );
       })

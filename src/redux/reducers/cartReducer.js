@@ -3,22 +3,28 @@ const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "ADD":
       const addedItem = action.item;
-      if (state[addedItem]) {
+      if (!addedItem) {
+        return { ...state };
+      } else if (state[addedItem]) {
         state[addedItem]++;
+        return { ...state };
       } else {
         state[addedItem] = 1;
+        return { ...state };
       }
-      return { ...state };
     case "REMOVE":
       const removedItem = action.item;
-      if (state[removedItem] === 1) {
+      if (!state[removedItem]) {
+        return { ...state };
+      } else if (state[removedItem] === 1) {
         delete state[removedItem];
+        return { ...state };
       } else {
         state[removedItem]--;
+        return { ...state };
       }
-      return { ...state };
     default:
-      return state;
+      return { ...state };
   }
 };
 
