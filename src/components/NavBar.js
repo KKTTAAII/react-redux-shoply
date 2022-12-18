@@ -1,8 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const cart = useSelector(state => state.cart);
+  const quantity =
+    Object.values(cart).length === 0
+      ? 0
+      : Object.values(cart).reduce((acc, next) => acc + next);
+
   return (
     <Navbar bg="light" sticky="top">
       <Container>
@@ -18,7 +25,7 @@ const NavBar = () => {
               Products
             </Nav.Link>
             <Nav.Link as={Link} to={"/cart"}>
-              Cart
+              <span>🛒{quantity}</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

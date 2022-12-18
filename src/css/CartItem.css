@@ -1,5 +1,34 @@
+.CartItem-container {
+    border: solid 1px black;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    justify-content: space-around;
+}
+
 .CartItem-img {
     width:  20vw;
     height: 100px;
     object-fit: scale-down;
+}
+
+.CartIem-img-container, .CartIem-detail-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.CartItem-quantity {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.CartIem-detail-container {
+    align-items: center;
+    justify-content: center;
+}
+
+.CartItem-add, .CartItem-remove:hover {
+    cursor: pointer;
 }

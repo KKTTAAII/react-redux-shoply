@@ -1,4 +1,5 @@
 import React from "react";
+import { Stack } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 
@@ -14,10 +15,10 @@ const Cart = () => {
     );
 
   return (
-    <div>
+    <Stack>
       <h1>Shopping Bag</h1>
       {allItemsInCart}
-    </div>
+    </Stack>
   );
 };
 
