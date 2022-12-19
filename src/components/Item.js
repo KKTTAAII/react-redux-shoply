@@ -9,6 +9,7 @@ const Item = ({ src, name, price, description, id }) => {
   const dispatch = useDispatch();
   const addItem = name => dispatch(add(name));
   const removeItem = name => dispatch(remove(name));
+  
   return (
     <div className="Item-container">
       <Link to={`/products/${id}`} key={id} className="List-link">

@@ -14,9 +14,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       }
     case "REMOVE":
       const removedItem = action.item;
-      if (!state[removedItem]) {
+      if (!removedItem) {
         return { ...state };
-      } else if (state[removedItem] === 1) {
+      } else if (!state[removedItem]) {
+        return { ...state };
+      } else if (state[removedItem] <= 1) {
         delete state[removedItem];
         return { ...state };
       } else {

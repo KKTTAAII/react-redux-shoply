@@ -1,12 +1,12 @@
 import React from "react";
 import "../css/CartItem.css";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../redux/reducers/actions/actions";
 import { Link } from "react-router-dom";
 
 const CartItem = ({ name }) => {
   const cart = useSelector(state => state.cart);
-  const inventory = useSelector(state => state.inventory, shallowEqual);
+  const inventory = useSelector(state => state.inventory);
   const dispatch = useDispatch();
   const addItem = name => dispatch(add(name));
   const removeItem = name => dispatch(remove(name));
@@ -20,6 +20,7 @@ const CartItem = ({ name }) => {
         <Link to={`/products/${id}`} key={id} className="List-link">
           <img src={image_url} alt={name} className="CartItem-img" />
         </Link>
+        <p>{name}</p>
         <p>Price: ${price}</p>
       </div>
 
@@ -43,7 +44,7 @@ const CartItem = ({ name }) => {
             ➖
           </span>
         </div>
-        <p>Total: ${total.toFixed(2)}</p>
+        <p className="CartItem-Total">${total.toFixed(2)}</p>
       </div>
     </div>
   );

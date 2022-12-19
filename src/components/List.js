@@ -1,10 +1,10 @@
 import React from "react";
-import { shallowEqual, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Item from "./Item";
 import "../css/List.css";
 
 const List = () => {
-  const inventory = useSelector(state => state.inventory, shallowEqual);
+  const inventory = useSelector(state => state.inventory);
 
   const allItems =
     inventory.length !== 0 ? (

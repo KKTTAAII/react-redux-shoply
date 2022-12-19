@@ -1,0 +1,17 @@
+.Cart-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12px;
+    align-items: center;
+}
+
+.Cart-order-sum {
+    border: lightgray 1px solid;
+    padding: 10px;
+    width: 300px;
+    height: fit-content;
+}
+
+.Cart-items, .Cart-order-sum {
+    margin: 10px;
+}

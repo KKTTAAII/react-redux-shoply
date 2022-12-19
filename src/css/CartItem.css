@@ -1,5 +1,5 @@
 .CartItem-container {
-    border: solid 1px black;
+    border: solid 1px lightgray;
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;
