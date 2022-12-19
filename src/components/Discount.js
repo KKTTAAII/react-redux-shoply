@@ -39,7 +39,7 @@ const Discount = ({ discountFormula, total }) => {
   };
 
   return (
-    <div>
+    <div className="Discount-container">
       <div className="Discount-flip-card-container" onClick={handleClick}>
         <div className="Discount-flip-card-inner">
           <div className="Discount-flip-card-front">Click for a DISCOUNT!</div>

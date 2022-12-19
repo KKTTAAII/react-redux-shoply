@@ -23,3 +23,33 @@
     font-size: 1.5em;
     margin: 0 auto;
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    .Cart-container {
+        display: block;
+        justify-content: center;
+    }
+    .Cart-order-sum {
+        margin: 0 auto;
+    }
+}
+
+
+/*Galaxy fold*/
+@media only screen
+and (min-device-width : 280px)
+and (max-device-width : 320px) {
+    .Cart-container {
+        display: block;
+        justify-content: center;
+    }
+    .Cart-order-sum {
+        border: lightgray 1px solid;
+        width: 80vw;
+        height: fit-content;
+        margin: 0 auto;
+    }
+}

@@ -46,9 +46,9 @@ const Cart = () => {
       </Stack>
       <div className="Cart-order-sum">
         <p className="Cart-order-sum-text">Order Summary</p>
-        <p className="Cart-order-sum-text">Total: ${grandTotal}</p>
-        <p className="Cart-order-sum-text">Tax: {tax}</p>
-        <p className="Cart-order-sum-text">Sub Total: ${(+grandTotal + +tax)}</p>
+        <p className="Cart-order-sum-text">Sub Total: ${grandTotal}</p>
+        <p className="Cart-order-sum-text">Tax: ${tax}</p>
+        <p className="Cart-order-sum-text">Total: ${(+grandTotal + +tax)}</p>
         <Discount discountFormula={applyDiscount} total={grandTotal} />
       </div>
     </div>
