@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getInventory } from "../redux/reducers/actions/actions";
-import AllRoutes from "./Routes";
+import AllRoutes from "./AllRoutes";
 import { Container } from "react-bootstrap";
 
 function App() {

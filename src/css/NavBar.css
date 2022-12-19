@@ -1,0 +1,8 @@
+.NavBar {
+    background-color: rgba(153, 220, 242, 0.5);
+}
+
+.NavBar-name {
+    font-size: large;
+    font-weight: 500;
+}

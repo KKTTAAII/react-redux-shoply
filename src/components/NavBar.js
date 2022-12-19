@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "../css/NavBar.css";
 
 const NavBar = () => {
   const cart = useSelector(state => state.cart);
@@ -11,12 +12,12 @@ const NavBar = () => {
       : Object.values(cart).reduce((acc, next) => acc + next);
 
   return (
-    <Navbar bg="light" sticky="top">
+    <Navbar sticky="top" className="NavBar" expand="lg">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to={"/"}>
+            <Nav.Link as={Link} to={"/"} className="NavBar-name">
               Shoply
             </Nav.Link>
           </Nav>
@@ -25,7 +26,9 @@ const NavBar = () => {
               Products
             </Nav.Link>
             <Nav.Link as={Link} to={"/cart"}>
-              <span role="img" aria-label="Cart">🛒{quantity}</span>
+              <span role="img" aria-label="Cart">
+                🛒{quantity}
+              </span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -1,4 +1,5 @@
 .Item-container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width: 20vw;
@@ -8,12 +9,12 @@
     margin: 10px;
     box-shadow: 5px 5px 10px lightgray;
     border-radius: 5px;
+    border: 1px;
+    border: 1px solid lightgray;
 }
 
 .Item-container:hover {
-    border: 2px solid #a7c957;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px lightgray;
+    border: 1px solid #a7c957;
 }
 
 .Item-img {

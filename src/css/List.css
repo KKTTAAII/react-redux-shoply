@@ -1,5 +1,6 @@
 .List-container {
     display: flex;
+    margin: 0 auto;
     justify-content: space-around;
     width: 80vw;
     flex-wrap: wrap;

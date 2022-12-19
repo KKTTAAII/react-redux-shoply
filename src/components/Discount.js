@@ -12,7 +12,7 @@ const Discount = ({ discountFormula, total }) => {
     const length = discounts.length;
     const percent = discounts[Math.floor(Math.random() * length)];
     setPercentageDiscount(percent);
-    setDiscountCode("REMOVE"+percent)
+    setDiscountCode("REMOVE" + percent);
   };
 
   const handleSubmit = e => {
@@ -24,7 +24,8 @@ const Discount = ({ discountFormula, total }) => {
       discountFormula(total, percentageDiscount);
     }
   };
-  const handleClick = e => {
+
+  const handleClick = () => {
     if (click) {
       return;
     } else {
@@ -49,9 +50,9 @@ const Discount = ({ discountFormula, total }) => {
       </div>
 
       <form onSubmit={handleSubmit}>
-        <small>Offer Code</small>
+        <p className="Discount-form-offer-head">Offer Code</p>
         <input type="text" readOnly value={discountCode}></input>
-        <button>APPLY</button>
+        <button className="Discount-form-button">APPLY</button>
       </form>
     </div>
   );

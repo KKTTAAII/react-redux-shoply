@@ -7,12 +7,14 @@ import "../css/Cart.css";
 import Discount from "./Discount";
 
 const Cart = () => {
+  const SALESTAX = 7.25;
   const [grandTotal, setGrandTotal] = useState(0);
   const cart = useSelector(state => state.cart);
   const cartItems = Object.keys(cart);
   const applyDiscount = (subTotal, discount) => {
     setGrandTotal((subTotal - (discount / 100) * subTotal).toFixed(2));
   };
+  let tax = ((grandTotal * SALESTAX) / 100).toFixed(2);
 
   useEffect(() => {
     const totals = document.querySelectorAll(".CartItem-Total");
@@ -23,14 +25,15 @@ const Cart = () => {
         let num = +text.slice(1);
         allTotal.push(num);
       }
-      setGrandTotal(allTotal.reduce((acc, next) => acc + next, 0).toFixed(2));
+      const sum = allTotal.reduce((acc, next) => acc + next, 0).toFixed(2);
+      setGrandTotal(sum);
     }
     getTotals();
   }, [cart]);
 
   const allItemsInCart =
     Object.keys(cart).length === 0 && cart.constructor === Object ? (
-      <div>Cart is empty</div>
+      <div className="Cart-text">Cart is empty</div>
     ) : (
       cartItems.map((item, i) => <CartItem name={item} key={i} />)
     );
@@ -42,8 +45,10 @@ const Cart = () => {
         {allItemsInCart}
       </Stack>
       <div className="Cart-order-sum">
-        <p>Order Summary</p>
-        <p>Sub Total: ${grandTotal}</p>
+        <p className="Cart-order-sum-text">Order Summary</p>
+        <p className="Cart-order-sum-text">Total: ${grandTotal}</p>
+        <p className="Cart-order-sum-text">Tax: {tax}</p>
+        <p className="Cart-order-sum-text">Sub Total: ${(+grandTotal + +tax)}</p>
         <Discount discountFormula={applyDiscount} total={grandTotal} />
       </div>
     </div>

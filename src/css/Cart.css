@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-around;
     margin-top: 12px;
-    align-items: center;
 }
 
 .Cart-order-sum {
@@ -14,4 +13,13 @@
 
 .Cart-items, .Cart-order-sum {
     margin: 10px;
+}
+
+.Cart-order-sum-text {
+    font-weight: 700;
+}
+
+.Cart-text {
+    font-size: 1.5em;
+    margin: 0 auto;
 }

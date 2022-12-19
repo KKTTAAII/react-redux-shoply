@@ -31,6 +31,27 @@
     transform: rotateY(180deg);
 }
 
+.Discount-flip-card-front {
+    background-color: rgb(113, 136, 243);
+    border-radius: 2px;
+    box-shadow: 5px 5px 10px lightgray;
+}
+
+
 .Discount-flip-card-back {
+    background-color: rgb(182, 239, 204);
+    border-radius: 2px;
+    box-shadow: 5px 5px 10px lightgray;
     transform: rotateY(180deg);
+}
+
+.Discount-form-button {
+    margin: 5px;
+    background-color: rgb(231, 213, 247);
+    border-radius: 2px;
+    border: solid 1px  rgb(177, 110, 236);
+}
+
+.Discount-form-offer-head {
+    font-weight: 700;
 }
