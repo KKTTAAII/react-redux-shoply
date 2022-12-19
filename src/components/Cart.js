@@ -4,11 +4,15 @@ import { Stack } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 import "../css/Cart.css";
+import Discount from "./Discount";
 
 const Cart = () => {
   const [grandTotal, setGrandTotal] = useState(0);
   const cart = useSelector(state => state.cart);
   const cartItems = Object.keys(cart);
+  const applyDiscount = (subTotal, discount) => {
+    setGrandTotal((subTotal - (discount / 100) * subTotal).toFixed(2));
+  };
 
   useEffect(() => {
     const totals = document.querySelectorAll(".CartItem-Total");
@@ -19,7 +23,7 @@ const Cart = () => {
         let num = +text.slice(1);
         allTotal.push(num);
       }
-      setGrandTotal(allTotal.reduce((acc, next) => acc + next, 0));
+      setGrandTotal(allTotal.reduce((acc, next) => acc + next, 0).toFixed(2));
     }
     getTotals();
   }, [cart]);
@@ -39,7 +43,8 @@ const Cart = () => {
       </Stack>
       <div className="Cart-order-sum">
         <p>Order Summary</p>
-        <p>Sub Total: ${grandTotal.toFixed(2)}</p>
+        <p>Sub Total: ${grandTotal}</p>
+        <Discount discountFormula={applyDiscount} total={grandTotal} />
       </div>
     </div>
   );

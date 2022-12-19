@@ -1,17 +1,18 @@
 .Item-container {
     display: flex;
     flex-direction: column;
-    border: 2px solid #386641;
-    border-radius: 5px;
     width: 20vw;
     align-items: center;
     padding: 10px;
     justify-content: center;
     margin: 10px;
+    box-shadow: 5px 5px 10px lightgray;
+    border-radius: 5px;
 }
 
 .Item-container:hover {
-    border-color: #a7c957;
+    border: 2px solid #a7c957;
+    border-radius: 5px;
     box-shadow: 5px 5px 10px lightgray;
 }
 

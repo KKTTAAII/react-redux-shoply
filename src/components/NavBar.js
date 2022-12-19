@@ -25,7 +25,7 @@ const NavBar = () => {
               Products
             </Nav.Link>
             <Nav.Link as={Link} to={"/cart"}>
-              <span>🛒{quantity}</span>
+              <span role="img" aria-label="Cart">🛒{quantity}</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
